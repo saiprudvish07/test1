@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from './user.service';
-
+import { getAuth, signOut } from "firebase/auth";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,28 +9,20 @@ import { UserService } from './user.service';
 })
 export class AppComponent {
   title = 'vnrcanteen';
-  constructor(public us:UserService){}
+  constructor(public us:UserService,private router:Router){}
 
-  onSignup(userObj:any){
+  userLogout(){
+ 
 
-    
-       
-    }
-    // userLogin(){
-    //   this.us.usersignin().subscribe(
-    //     res=>{
-    //       if(res.message==="User created"){
-    //         alert("User created")
-    //         //navigate to login component
-    //       }
-    //       else{
-    //         alert(res.message)
-    //       }
-    //     },
-    //     err=>{
-    //       console.log(err)
-    //       //alert("Something went wrong in user creation")
-    //     }
-    //   )
-    // }
+
+signOut(this.us.AuthData).then(() => {
+  // Sign-out successful.
+  alert("Logut success")
+}).catch((error) => {
+  // An error happened.
+});
+    this.us.userLoginStatus=false;
+    this.router.navigateByUrl('/register')
+  }
+   
 }

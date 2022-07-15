@@ -1,6 +1,6 @@
 <!--Nav-bar-->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand text-light" routerLink="home">CANTEEN</a>
+    <a class="navbar-brand text-dark" routerLink="home">CANTEEN</a>
     <button class="navbar-toggler navbar-toggler-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navcollapse" aria-controls="navcollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,161 +10,29 @@
         
           <li class="nav-item">
            
-            <a class="nav-link text-white "  routerLink='home' routerLinkActive="active">Home</a>
+            <a class="nav-link text-dark "  routerLink='home' routerLinkActive="active">Home</a>
+          </li>
+
+          <li class="nav-item"  *ngIf="us.userLoginStatus">
+           
+            <a class="nav-link text-dark"  routerLink='orders' routerLinkActive="active">Myorders</a>
+          </li>
+         
+          <li class="nav-item"  *ngIf="!us.userLoginStatus">
+           
+            <a class="nav-link text-dark "  routerLink='register' routerLinkActive="active">Register</a>
+          </li>
+           
+          <li class="nav-item" *ngIf="us.userLoginStatus">
+           
+            <a class="nav-link text-dark"  routerLink='register' routerLinkActive="active" (click)="userLogout()">Logout</a>
           </li>
  
        
    
   
   
-        <!--Sign up modal-->
-  
-        
-          <!--Sign up modal-->
-
-      
-      <li class="nav-item">
-
-        <a class=" text-white  mod nav-link " data-bs-target="#md" data-bs-toggle="modal">Sign Up</a>
-
-
-    <div class="modal " id="md" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog">
-            <div class="modal-content background">
-               <div class="modal-body ">
-                    <button class="btn btn-danger float-end " data-bs-dismiss="modal">X</button>
-                    <div class="container">
-
-                        <h4 class="text-center text-white mt-5 mb-4">CREATE ACCOUNT</h4>
-
-                        <form  #ref="ngForm" (ngSubmit)="onSignup(ref.value)">
-                           <div class="form-floating mb-3 ms-sm-4 me-sm-4"> 
-                               <input type="text" name="username" id="username" class="form-control" name="username" placeholder="Full Name"  ngModel >
-                               <label for="username">Full Name</label>
-                           </div>
-               
-                           <div class="form-floating mb-3 ms-sm-4 me-sm-4">
-                                <input type="text" name="email" id="em" class="form-control" placeholder="Email" name="email" ngModel>
-                                <label for="em">Email</label>
-                           </div>
-
-                           <div class="form-floating ms-sm-4 me-sm-4 mb-3 ">
-                               <input type="text" name="mobilenumber" id="mbno" class="form-control" placeholder="Mobile Number" name="mobileno" ngModel >
-                                <label for="mbno">Mobile Number</label>
-                           </div>
-               
-                         
-                       
-                          <div class="row g-3 mb-3 ms-sm-3 me-sm-3">
-                            <div class="col-md">
-                              <div class="form-floating">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel>
-                                <label for="password">Password</label>
-                              </div>
-                            </div>
-                            
-                          </div>
-
-                           
-                          
-            
-
-                         
-               
-                            <div class="form-check mb-2 d-flex justify-content-center">
-                                <input class="form-check-input" type="checkbox" value="true" id="flexCheckDefault" name="agree" ngModel>
-                                <label class="form-check-label text-white ms-1 mt-1" for="flexCheckDefault">
-                                  I agree to the terms and conditions 
-                                </label>
-                              </div>
-
-
-                            <div class="mb-3 text-center">
-                              <button class="btn btn-warning " type="submit" ><i class="fas fa-user-plus me-2"></i>Register</button>
-                            </div>
-               
-                            
-               
-               
-               
-                        </form>
-                    </div>
-                    
-                           
-                    
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-      </li>
-          <!-- login modal -->
-       <li class="nav-item">
-
-    <a class=" text-white  mod nav-link " data-bs-target="#mdlogin" data-bs-toggle="modal">Login</a>
-
-
-<div class="modal " id="mdlogin" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content background">
-           <div class="modal-body ">
-                <button class="btn btn-danger float-end " data-bs-dismiss="modal">X</button>
-                <div class="container">
-
-                    <h4 class="text-center text-white mt-5 mb-4">CREATE ACCOUNT</h4>
-
-                    <form  #ref="ngForm" (ngSubmit)="onSignup(ref.value)">
-                       <div class="form-floating mb-3 ms-sm-4 me-sm-4"> 
-                           <input type="text" name="username" id="username" class="form-control" name="username" placeholder="User Id"  ngModel >
-                           <label for="username"> User ID</label>
-                       </div>
-           
-                       
-           
-                     
-                   
-                      <div class="row g-3 mb-3 ms-sm-3 me-sm-3">
-                        <div class="col-md">
-                          <div class="form-floating">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel>
-                            <label for="password">Password</label>
-                          </div>
-                        </div>
-                        
-                      </div>
-
-                       
-                      
-        
-
-                     
-           
-                       
-
-
-                        <div class="mb-3 text-center">
-                          <button class="btn btn-warning " type="submit"  ><i class="fas fa-user-plus me-2"></i>Login</button>
-                        </div>
-           
-                        
-           
-           
-           
-                    </form>
-                </div>
-                
-                       
-                
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-       </li>
+       
   
   
   

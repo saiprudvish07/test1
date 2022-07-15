@@ -1,0 +1,24 @@
+<div class="container ">
+    <div class="row">
+       
+        <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5">
+            <form class="w-100 " #ref="ngForm"  (ngSubmit)="loginCheck(ref.value)">
+                <h1 class="text-center text-dark ">LOGIN</h1>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="username" class="form-control" id="email" placeholder="name@example.com" name="email"  ngModel>
+                    <label for="email" class="form-label">Username</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="ps" placeholder="Password" name="password"  ngModel>
+                    <label for="password" class="form-label">Password</label>
+                  </div>
+                  <button class="btn btn-warning text-dark d-block mx-auto mt-3 mb-3" type="submit">Sign In</button>    
+
+            </form>
+            
+        </div>
+
+
+    </div>
+
+</div>

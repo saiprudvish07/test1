@@ -6,8 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
+  AuthData:any;
+
+  userLoginStatus:boolean=false;
   constructor(private hc:HttpClient) { }
-  usersignin():Observable<any>{
-    return  this.hc.get("/user/login")
+     
+
+  getCurrentAuth(userAuth:any){
+ this.AuthData=userAuth;
   }
 }

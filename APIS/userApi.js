@@ -87,7 +87,7 @@ con.connect(function(err) {
 
 const provider = new iauth.GoogleAuthProvider();
 //const auth=iauth.getAuth(app1);
- console.log(provider)
+//console.log(provider)
 
 //const auth = getAuth();
 
@@ -103,7 +103,7 @@ userApi.get("/login", expressErrorHandler(async (req, res) => {
      (res)=>{
          const user = res.user;
            
-          console.log(user)
+          //console.log(user)
      }
  );
   
