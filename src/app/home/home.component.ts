@@ -11,8 +11,21 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 export class HomeComponent implements OnInit {
 
   constructor(public us:UserService){}
-
+fooditems:any;
   ngOnInit(): void {
+    this.us.getProducts().subscribe(
+      userData=>{
+        //assign movies
+        this.fooditems=userData;
+      
+        console.log(this.fooditems)
+     
+       
+      },
+      err=>{
+        console.log("err in getting movies data",err)
+      }
+  )
   }
 
 }

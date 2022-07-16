@@ -15,4 +15,11 @@ export class UserService {
   getCurrentAuth(userAuth:any){
  this.AuthData=userAuth;
   }
+
+  //to read all products
+  getProducts():Observable<any>{
+
+    return this.hc.get('/user/getitems')
+ 
+}
 }

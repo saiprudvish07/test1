@@ -11,9 +11,34 @@ const userApi=require("./APIS/userApi")
 app.use('/user',userApi)
 
 
+const mc=require("mongodb").MongoClient
+
+//connection string
+
+//const databaseUrl = process.env.DATABASE_URL;
+ const databaseUrl="mongodb+srv://prudvish_database:sai1234@cluster1.bxt0f.mongodb.net/vnrcanteen?retryWrites=true&w=majority"
 
 
+//connect to DB
+mc.connect(databaseUrl, {useNewUrlParser:true,  useUnifiedTopology: true}, (err, client) => {
 
+    if (err) {
+        console.log("err in db connection", err);
+    }
+    else {
+        //get database object
+        let databaseObj = client.db("vnrcanteen")
+        //create collection object
+    let  itemsCollectionObj= databaseObj.collection("itemscollection")
+
+
+    app.set("itemsCollectionObj",itemsCollectionObj)
+
+
+        console.log("connected to database")
+
+    }
+})
 
 
 
