@@ -44,15 +44,22 @@ mc.connect(databaseUrl, {useNewUrlParser:true,  useUnifiedTopology: true}, (err,
 
 
 
+app.get('*',(req,res) =>{
+  res.sendFile(path.join(__dirname,'dist/vnrcanteen/index.html'), function(err){
+      if(err){
+          res.status(500).send(err)
+      }
+  })
+})
 
-
-
-
-
-//handle invalid path
 app.use((req, res, next) => {
+
   res.send({ message: `path ${req.url} is invalid` })
 })
+
+
+
+
 
 //handle errors
 app.use((err, req, res, next) => {
