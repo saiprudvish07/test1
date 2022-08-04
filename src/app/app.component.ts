@@ -10,10 +10,11 @@ import { getAuth, signOut } from "firebase/auth";
 export class AppComponent {
   title = 'vnrcanteen';
   constructor(public us:UserService,private router:Router){}
-
-  userLogout(){
+  
  
+  userLogout(){
 
+ 
 
 signOut(this.us.AuthData).then(() => {
   // Sign-out successful.

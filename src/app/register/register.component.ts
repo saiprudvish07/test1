@@ -44,13 +44,13 @@ export class RegisterComponent implements OnInit {
      (res)=>{
          const user = res.user;
            
-         // console.log(user)
+         console.log(user)
           this.vals=user
          this.us.getCurrentAuth(auth)
          alert("User Login Success")
           this.us.userLoginStatus=true;
           this.router.navigateByUrl('/home')
-
+          console.log(this.us.AuthData)
 
 
      }

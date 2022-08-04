@@ -1,0 +1,36 @@
+.menu-item {
+    display: flex;
+    max-width: 500px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+*, * ::after, * ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    display: block;
+}
+.cart-btn-container button {
+    background: #6c757d;
+    border: none;
+    color: #ffffff;
+    font-size: 17px;
+    padding: 5px 10px;
+    transition: all 0.5s;
+}
+
+button {
+    cursor: pointer;
+}
+.cart-innerlay > * .remove-item, i, button {
+    cursor: pointer;
+}
+button {
+    border: none;
+    background-color: #ffffff;
+    outline: none;
+}

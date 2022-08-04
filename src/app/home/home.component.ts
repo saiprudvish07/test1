@@ -18,7 +18,7 @@ fooditems:any;
         //assign movies
         this.fooditems=userData;
       
-        console.log(this.fooditems)
+        //console.log(this.fooditems)
      
        
       },

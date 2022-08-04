@@ -1,1 +1,32 @@
-<img src="assets/vnr.jpg" alt="" >
+<!-- data of food from db.json -->
+<div class="container">
+    <h1 class="text-danger text-center" >Food items</h1>
+
+     <div class="row row-cols-s-1 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-4 mb-4">
+        <div class="col" *ngFor="let obj of fooditems.message">
+              
+   
+        <article class="menu-item">
+            <img src="{{obj.image}}" loading="lazy" width="25%" alt="Product image">
+            <div class="item-info">
+            <figure>
+                <h2>{{obj.foodfullname}}</h2>
+                <div class="item-category">{{obj.foodfullname}}</div>
+                <div class="flex" style="margin-top: 10px;">
+                    <i class="fas fa-fire"></i>
+                    <p>{{obj.foodcal}}</p>
+                </div>
+            </figure>
+            <hr style="margin: 10px 0;">
+            <div class="menu-cart-functionality">
+                <div class="price"> Rs {{obj.cost}}/-</div>
+                <div class="cart-btn-container">
+                    <button class="bag-btn" id="add-to-cart-btn" data-id="1">Add to Cart</button>
+                </div>
+            </div>
+            </div>
+        </article>
+        </div>
+      </div>
+    </div>
+

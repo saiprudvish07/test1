@@ -1,0 +1,14 @@
+{
+    "foodid":1,
+    "foodname":"samosa",
+    "foodfullname":"Aloo samosa",
+    "fooddescription":"samosa with alooo",
+    "foodcal":"260-365 Kcal",
+    "foodcount":5,
+    "foodtype":"snack",
+    "image":"https://assets.cntraveller.in/photos/60ba1fbfe1b212c19a817da0/16:9/w_1280,c_limit/samosa-1366x768.jpg",
+    "cost":18,
+    "preptime":3, 
+    "foodday":"Allday",
+    "discount":5  
+}
