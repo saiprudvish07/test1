@@ -40,7 +40,7 @@ export class SignupComponent implements OnInit {
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user)
+      // console.log(user)
         this.us.getCurrentAuth(auth)
         alert("User signup Success")
         // this.us.userLoginStatus=true;

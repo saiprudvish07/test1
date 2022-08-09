@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
     const app = initializeApp(firebaseConfig);
     const auth=getAuth(app);
   
-console.log(auth)
+//console.log(auth)
 
 const user = auth.currentUser;
-console.log(user)
+//console.log(user)
 if (user !== null) {
   // The user object has basic properties such as display name, email, etc.
   const displayName = user.displayName;
@@ -48,7 +48,7 @@ if (user !== null) {
   // this value to authenticate with your backend server, if
   // you have one. Use User.getToken() instead.
   const uid = user.uid;
-  console.log(uid)
+  //console.log(uid)
 }
    
   //console.log(userCredential.email)
@@ -62,7 +62,7 @@ if (user !== null) {
       alert("User Login Success")
        this.us.userLoginStatus=true;
        this.router.navigateByUrl('/home')
-    console.log(auth.currentUser)
+    //console.log(auth.currentUser)
       // ...
     })
     .catch((error) => {

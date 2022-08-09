@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,21 @@ export class UserService {
   constructor(private hc:HttpClient) { }
      
 
+  dataSource=new BehaviorSubject<any>(0)
+
+  dataObservable=this.dataSource.asObservable();
+  
+    updateDataObservable(data:any){
+      this.dataSource.next(data)
+    }
   getCurrentAuth(userAuth:any){
  this.AuthData=userAuth;
+  }
+
+ 
+  sendProductToUserCart(userProductObj:any):Observable<any>{
+
+    return this.hc.post("/user/add-to-cart",userProductObj)
   }
 
   //to read all products
