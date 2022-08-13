@@ -27,7 +27,7 @@ userApi.post("/add-to-cart", expressErrorHandler(async (req, res, next) => {
   let userCartCollectionObject = req.app.get("userCartCollectionObject")
 
   let newProdObject = req.body;
-console.log(newProdObject)
+//console.log(newProdObject)
 
   //find usercartcollection 
   let userCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
@@ -73,7 +73,7 @@ console.log(newProdObject)
          userCartObj.products.push(newProdObject.productObject)
          await userCartCollectionObject.updateOne({ username: newProdObject.username }, { $set: { ...userCartObj } })
          let latestCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
-         res.send({ message: "New movie Added", latestCartObj: latestCartObj })
+         res.send({ message: "New product Added", latestCartObj: latestCartObj })
          
            
     
@@ -82,6 +82,26 @@ console.log(newProdObject)
 
 
 
+
+}))
+
+
+//get products from user cart
+
+userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next) => {
+
+  let userCartCollectionObject = req.app.get("userCartCollectionObject")
+
+  let un = req.params.username;
+   //console.log(un)
+  let userProdObj = await userCartCollectionObject.findOne({ username: un })
+  console.log(userProdObj)
+  if (userProdObj.products.length() === 0) {
+      res.send({ message: "Cart-empty" })
+  }
+  else {
+      res.send({ message: userProdObj })
+  }
 
 }))
 

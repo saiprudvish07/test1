@@ -29,6 +29,10 @@ export class UserService {
     return this.hc.post("/user/add-to-cart",userProductObj)
   }
 
+   
+  getProductsFromUserCart(username:any):Observable<any>{
+    return this.hc.get(`/user/getproducts/${username}`)
+  }
   //to read all products
   getProducts():Observable<any>{
 

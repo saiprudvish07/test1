@@ -20,6 +20,7 @@
     "@angular/router": "~13.3.0",
     "A": "^0.0.1",
     "bootstrap": "^3.4.1",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
     "firebase": "^9.9.0",

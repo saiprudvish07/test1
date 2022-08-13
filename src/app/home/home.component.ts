@@ -58,7 +58,7 @@ let username=user?.uid
 
      
 
-    let newUserProductObj={username,productObject}
+let newUserProductObj={username,productObject}
   
    this.us.sendProductToUserCart(newUserProductObj).subscribe(
      res=>{
