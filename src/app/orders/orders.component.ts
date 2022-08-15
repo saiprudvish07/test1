@@ -10,9 +10,11 @@ import { UserService } from '../user.service';
 })
 export class OrdersComponent implements OnInit {
 
-
+  usname:any;
+  ans:any;
+  usmail:any;
   userCartObj:any;
-  products=[];
+  products:any;
   userObj:any;
   count:any;
   sum:any;
@@ -38,17 +40,24 @@ export class OrdersComponent implements OnInit {
     const app = initializeApp(firebaseConfig);
     const auth=getAuth(app);
     
-    //console.log(auth)
+    //console.log(auth.currentUser?.photoURL)
     
     const user = auth.currentUser;
+    //console.log(user)
     let username=user?.uid
+    this.usname=auth.currentUser?.displayName
+    this.usmail=user?.email
      //get userCartObj from API
      this.us.getProductsFromUserCart(username).subscribe(
        res=>{
-           console.log(res.message)
+           //console.log(res.message)
+           this.products=res.message.products
+           this.ans=JSON.stringify(this.products)
+           console.log(this.ans)
        }
+     
      )
-
+     
    
   }
 

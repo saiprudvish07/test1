@@ -95,8 +95,8 @@ userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next)
   let un = req.params.username;
    //console.log(un)
   let userProdObj = await userCartCollectionObject.findOne({ username: un })
-  console.log(userProdObj)
-  if (userProdObj.products.length() === 0) {
+  //console.log(userProdObj.products)
+  if (userProdObj.products.length === 0) {
       res.send({ message: "Cart-empty" })
   }
   else {
