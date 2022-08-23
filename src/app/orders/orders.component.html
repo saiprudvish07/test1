@@ -7,9 +7,11 @@
     <h2 class="mybag ">(My Bag  items)</h2>
     <div class="row">
         <div class="col-lg-12 col-xl-8">
-            <div class="row mb-2" *ngFor="let p of products">
+
+        
+            <div class="row mb-2" *ngFor="let p of products" >
                 <div class="col-4 col-sm-4 col-md-3 col-lg-3 ">
-                    <img src="{{p.image}}" alt="img not found" width="100%">
+                    <img src="{{p.image}}" alt="img no3t found" width="100%">
                 </div>
                 <div class="col-8 col-sm-8 col-md-9 col-lg-9 ">
                     <h2>{{p.foodname}}</h2>
@@ -18,37 +20,23 @@
                     <span id="size" class="p-1 mt-1"><b> Size: {{p.foodcal}} </b></span>
                     <h4 class="display-5 text-end"><span id="price">{{p.cost | currency:'INR'}}</span></h4>
                 </div>
-
-
-            </div>
-
-        </div>
-
-
-        <div class="col-xl-4">
-            <div class="border border-2 p-2">
-                <div class="coupon">
-                    <h6 class="ms-2">COUPONS</h6>
-                    <p class="ms-2"><i class="fas fa-tag me-2" style="font-size: 20px;"></i>Apply coupons<a class="check text-end float-end me-2 ">APPLY</a></p>
-                </div>
-                <hr>
-                <div class="details mt-3 mb-3">
-                    <h6 class="ms-2">PRICE DETAILS ({{count}} items)</h6>
-                    <div class="text-start ms-2">
-                        <p>Total MRP<strong class="float-end">{{sum| currency:'INR'}}</strong></p>
-                        <p>Discount on MRP<strong class="float-end text-success">{{-dis| currency:'INR'}}</strong></p>
-                        <p>Coupon Discount</p>
-                        <p>Convenience Fee<strong class="float-end">{{cfee| currency:'INR'}}</strong></p>
-                        <hr>
-                        <h6>Total Amount <strong class="float-end">{{total| currency:'INR'}}</strong></h6>
-                        <hr>
+                <div class="food-card_order-count">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary minus-btn"   (click)="deleteitem(p.foodid)"  type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                        </div>
+                        <p class="mt-1 text-dark ms-2 me-2">{{p.foodcount}}</p>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary add-btn" type="button"   (click)="additem(p.foodid)"  id="button-addon1"><i class="fa fa-plus"></i></button>
+                        </div>
                     </div>
-                    <div class="btn w-100 mt-2 mb-2"><a href="#" class="amount">PLACE ORDER</a></div>
-
-
                 </div>
+
             </div>
+
         </div>
+
+
     </div>
 
 </div>

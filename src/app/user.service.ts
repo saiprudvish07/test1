@@ -15,7 +15,7 @@ export class UserService {
   dataSource=new BehaviorSubject<any>(0)
 
   dataObservable=this.dataSource.asObservable();
-  
+
     updateDataObservable(data:any){
       this.dataSource.next(data)
     }
@@ -28,7 +28,10 @@ export class UserService {
 
     return this.hc.post("/user/add-to-cart",userProductObj)
   }
+  deleteProductfromUserCart(userProductObj:any):Observable<any>{
 
+    return this.hc.post("/user/del-from-cart",userProductObj)
+  }
    
   getProductsFromUserCart(username:any):Observable<any>{
     return this.hc.get(`/user/getproducts/${username}`)

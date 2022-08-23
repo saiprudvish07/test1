@@ -30,15 +30,7 @@
                                     <span>{{i.cost}}/-</span>
                                 </div>
                                 <div class="food-card_order-count">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
-                                        </div>
-                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary add-btn" (click)="additem(i.foodid)" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </div>
+                                    <button class="mb-4"  (click)="additem(i.foodid)"> ADD TO CART<i class="fas fa-cart-plus ms-2"></i> </button>
                                 </div>
                             </div>
                         </div>

@@ -29,35 +29,40 @@ userApi.post("/add-to-cart", expressErrorHandler(async (req, res, next) => {
   let newProdObject = req.body;
 //console.log(newProdObject)
 
+let idd=newProdObject.productObject.foodid;
   //find usercartcollection 
   let userCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
-// console.log(userCartObj)
+    //console.log(userCartObj)
+   
   //if userCartObj is not existed
   if (userCartObj === null) {
+      
 
-      //create new object
-      let products = [];
-     // let name=[];
-     
+    let cntarray = [];
+
+
+    obj={
+        fid:idd,
+        details:{
+        product:newProdObject.productObject
+        },
+        cnt:1
+    }
+
+     cntarray.push(obj)
+    
+      
+   
+            let products = [];
+  
+
+
       products.push(newProdObject.productObject)
-     
-  
-      //names.push(newProdObject.productObject.name)
-      //console.log(newProdObject.productObject.name)
-      //console.log(names)
-      // for( var i = 0; i < products.length; i++){ 
-  
-      //     if ( products[i].pr=== ) { 
-      
-      //         arr.splice(i, 1); 
-      //     }
-      
-      // }
 
       let newUserCartObject = { username: newProdObject.username, products }
-
+     
       //insert it
-
+        // console.log(newUserCartObject)
       await userCartCollectionObject.insertOne(newUserCartObject)
 
       let latestCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
@@ -66,23 +71,29 @@ userApi.post("/add-to-cart", expressErrorHandler(async (req, res, next) => {
   }
   //if existed
   else {
-// console.log(newProdObject.productObject.name)
-           //console.log(userCartObj.products)
-           
-       
-         userCartObj.products.push(newProdObject.productObject)
+
+  
+         
+ 
+
+const index = userCartObj.products.findIndex(object => {
+ return object.foodid === idd;
+});
+
+if (index !== -1) {
+
+  userCartObj.products[index].foodcount ++ ;
+}
+else{
+//console.log(userCartObj)
+//userCartObj.cntarray.push(obj);
+userCartObj.products.push(newProdObject.productObject)
+}
+console.log(userCartObj)
          await userCartCollectionObject.updateOne({ username: newProdObject.username }, { $set: { ...userCartObj } })
          let latestCartObj = await userCartCollectionObject.findOne({ username: newProdObject.username })
-         res.send({ message: "New product Added", latestCartObj: latestCartObj })
-         
-           
-    
-    
+         res.send({ message: "New product Added", latestCartObj: latestCartObj })       
   }
-
-
-
-
 }))
 
 
@@ -108,7 +119,36 @@ userApi.get("/getproducts/:username", expressErrorHandler(async (req, res, next)
 
 
 
+//del from cart
+userApi.post("/del-from-cart", expressErrorHandler(async (req, res, next) => {
 
+  let userCartCollectionObject = req.app.get("userCartCollectionObject")
+  let j=req.body.username
+  let  i= req.body.item;
+ let userCartObj = await userCartCollectionObject.findOne({ username: j })
+ const index = userCartObj.products.findIndex(object => {
+  return object.foodid === i;
+ });
+//console.log(userCartObj)
+ if (index !== -1) {
+  if(userCartObj.products[index].foodcount > 0){
+  userCartObj.products[index].foodcount -- ;
+  await userCartCollectionObject.updateOne({ username: j }, { $set: { ...userCartObj } })
+  }
+  if(userCartObj.products[index].foodcount === 0){
+    let c= await userCartCollectionObject.updateOne( { "username": j }, { $pull: { "products": { "foodid": i } } } )
+  
+  }
+}
+
+else{
+  res.send({message:"no item to delete"})
+}
+
+
+     res.send({message:"item removed"})
+
+}))
 
 
 

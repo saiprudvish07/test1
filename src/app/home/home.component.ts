@@ -16,8 +16,10 @@ export class HomeComponent implements OnInit {
   
 
 
-  constructor(public us:UserService,private ar:Router){}
+constructor(public us:UserService,private ar:Router){}
 fooditems:any;
+ans:any;
+
   ngOnInit(): void {
     this.us.getProducts().subscribe(
       userData=>{
@@ -36,7 +38,7 @@ fooditems:any;
  additem(item:any){
     //console.log(item)
      
-let productObject=this.fooditems[item]
+let productObject=this.fooditems[item-1]
 const firebaseConfig = {
   apiKey: "AIzaSyC3_sVw1vM2JJYHIZrmhW0eYOfz9aEOJKI",
   authDomain: "vnrcanteen-dc1ee.firebaseapp.com",
@@ -72,4 +74,6 @@ let newUserProductObj={username,productObject}
    )
   
  }
+
+ 
 }
