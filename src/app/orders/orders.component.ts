@@ -9,7 +9,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-
+   ijj:any;
+  fooditems:any;
   usname:any;
   ans:any;
   usmail:any;
@@ -37,6 +38,18 @@ export class OrdersComponent implements OnInit {
     };
     
     
+  this.us.getProducts().subscribe((userData:any)=>{
+
+    this.fooditems=userData.message;
+      // console.log(this.users)
+ },
+err=>{
+  console.log("err in getting info data",err)
+}
+
+)
+
+
     const app = initializeApp(firebaseConfig);
     const auth=getAuth(app);
     
@@ -60,5 +73,89 @@ export class OrdersComponent implements OnInit {
      
    
   }
+  additem(item:any){
+    //console.log(item)
+     
+  this.ijj=item;
+
+
+let productObject=this.fooditems[item-1]
+const firebaseConfig = {
+  apiKey: "AIzaSyC3_sVw1vM2JJYHIZrmhW0eYOfz9aEOJKI",
+  authDomain: "vnrcanteen-dc1ee.firebaseapp.com",
+  projectId: "vnrcanteen-dc1ee",
+  storageBucket: "vnrcanteen-dc1ee.appspot.com",
+  messagingSenderId: "560693712371",
+  appId: "1:560693712371:web:2ff1567022f2b7f06c2e86",
+  measurementId: "G-SZ11ZY2DL6"
+};
+
+
+const app = initializeApp(firebaseConfig);
+const auth=getAuth(app);
+
+//console.log(auth)
+
+const user = auth.currentUser;
+let username=user?.uid
+
+     
+
+let newUserProductObj={username,productObject}
+  
+   this.us.sendProductToUserCart(newUserProductObj).subscribe(
+     res=>{
+       alert(res['message'])
+       this.us.updateDataObservable(res.latestCartObj)
+     },
+     err=>{
+       console.log("err in posting product to cart ",err)
+       alert("Something wrong in adding product to cart...")
+     }
+    
+   )
+  
+ }
+
+  deleteitem(item:any){
+    //console.log(item)
+     
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyC3_sVw1vM2JJYHIZrmhW0eYOfz9aEOJKI",
+  authDomain: "vnrcanteen-dc1ee.firebaseapp.com",
+  projectId: "vnrcanteen-dc1ee",
+  storageBucket: "vnrcanteen-dc1ee.appspot.com",
+  messagingSenderId: "560693712371",
+  appId: "1:560693712371:web:2ff1567022f2b7f06c2e86",
+  measurementId: "G-SZ11ZY2DL6"
+  };
+  
+  
+  const app = initializeApp(firebaseConfig);
+  const auth=getAuth(app);
+  
+  //console.log(auth)
+  
+  const user = auth.currentUser;
+  let username=user?.uid
+  
+     
+  
+  let newUserProductObj={username,item}
+  
+   this.us.deleteProductfromUserCart(newUserProductObj).subscribe(
+     res=>{
+  
+      this.us.updateDataObservable(res.latestCartObj)
+       alert(res['message'])
+      
+     },
+     err=>{
+       console.log("err in posting product to cart ",err)
+       alert("Something wrong in adding product to cart...")
+     }
+   )
+    }  
 
 }

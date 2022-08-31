@@ -6,7 +6,7 @@ app.use(exp.static(path.join(__dirname,"./dist/vnrcanteen/")))
 
 
 
-require("dotenv").config()
+//require("dotenv").config()
 const userApi=require("./APIS/userApi")
 app.use('/user',userApi)
 
@@ -15,8 +15,8 @@ const mc=require("mongodb").MongoClient
 
 //connection string
 
-const databaseUrl = process.env.DATABASE_URL;
- //const databaseUrl="mongodb+srv://prudvish_database:sai1234@cluster1.bxt0f.mongodb.net/vnrcanteen?retryWrites=true&w=majority"
+//const databaseUrl = process.env.DATABASE_URL;
+ const databaseUrl="mongodb+srv://prudvish_database:sai1234@cluster1.bxt0f.mongodb.net/vnrcanteen?retryWrites=true&w=majority"
 
 
 //connect to DB
@@ -63,5 +63,5 @@ app.use((err, req, res, next) => {
 
 
 //assign port
-const port = process.env.PORT ||8080;
+const port = 3000;
 app.listen(port, () => console.log(`server on ${port}...`))

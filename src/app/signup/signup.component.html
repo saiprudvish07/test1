@@ -1,4 +1,4 @@
-<div class="container ">
+<!-- <div class="container ">
     <div class="row">
        
         <div class="col-sm-12 col-md-12 col-lg-6 ">
@@ -28,5 +28,28 @@
 
 
     </div>
+
+</div> -->
+
+
+
+
+<div class="container ">
+  <div class="row">
+     
+      <div class="col-sm-12 col-md-12 col-lg-6 ">
+          <form class="w-100" #ref="ngForm"  (ngSubmit)="signUpCheck(ref.value)">
+              <input type="username" class="input-field mt-5" id="fullname" placeholder="Full Name" name="fullname" ngModel>
+              <input type="email" class="input-field mt-2" placeholder="email" name="email" ngModel>              
+              <input type="password" class="input-field mt-2" placeholder="Password" name="password" ngModel>
+              <input type="number" class="input-field mt-2" placeholder="Mobile No" name="mno" ngModel>
+              <button type="submit" class="submit-btn text-center mt-3">Create Account</button>   
+
+          </form>
+          
+      </div>
+
+
+  </div>
 
 </div>

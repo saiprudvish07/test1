@@ -1,12 +1,36 @@
-body { padding: 2em; }
+/* .container{ 
+ 
+    width: 100%;
+    
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #f4f5f9;
+  border: 1px solid white;
+  
+ 
+} */
 
+.nav-link{
+    width:100%;
+    padding: 10px 30px;
+    cursor:pointer;
+    display:block;
+    margin:auto;
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    border:1px solid #ff105f;
+    outline:none;
+    border-radius: 10px;
+}
 
 /* Shared */
 .loginBtn {
   box-sizing: border-box;
   position: relative;
   /* width: 13em;  - apply for fixed size */
-  margin: 0.2em;
+  margin-top: 15px;
   padding: 0 15px 0 46px;
   border: none;
   text-align: left;

@@ -28,6 +28,10 @@ export class UserService {
 
     return this.hc.post("/user/add-to-cart",userProductObj)
   }
+  deleteProductfromUserCart(userProductObj:any):Observable<any>{
+
+    return this.hc.post("/user/del-from-cart",userProductObj)
+  }
 
    
   getProductsFromUserCart(username:any):Observable<any>{

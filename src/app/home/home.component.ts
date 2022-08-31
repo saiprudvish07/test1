@@ -36,7 +36,7 @@ fooditems:any;
  additem(item:any){
     //console.log(item)
      
-let productObject=this.fooditems[item]
+let productObject=this.fooditems[item-1];
 const firebaseConfig = {
   apiKey: "AIzaSyC3_sVw1vM2JJYHIZrmhW0eYOfz9aEOJKI",
   authDomain: "vnrcanteen-dc1ee.firebaseapp.com",

@@ -1,4 +1,4 @@
-<div class="container ">
+<!-- <div class="container ">
     <div class="row">
        
         <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5">
@@ -21,4 +21,59 @@
 
     </div>
 
+</div> -->
+
+
+
+<!-- 
+<div class="container">
+   <div class="row">
+     
+    <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5"> 
+      <div class="login-form">
+        <h2>LOGIN</h2>
+        <form #ref="ngForm" (ngSubmit)="loginCheck(ref.value)">
+
+          <div class="textbox">
+            <i class="fas fa-user"></i>
+            <input type="text" id="email" placeholder="name@example.com" name="email" ngModel>
+          </div>
+
+
+          <div class="textbox">
+            <i class="fas fa-key"></i>
+            <input type="password" id="ps" placeholder="Password" name="password" ngModel>
+          </div>
+
+          <div class="button"><button class="btn btn-primary text-white" type="submit">Sign in</button></div>
+          <br>
+        </form>
+      
+      </div>
+    </div>
+      
+      
+     </div>
+
+
+   
+</div> -->
+
+
+<div class=""container>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 mt-5 mb-5 ">
+            <form class="input-group text-center w-100" #ref="ngForm" (ngSubmit)="loginCheck(ref.value)">
+                <input type="email" class="input-field mt-2" placeholder="name@example.com" name="email" ngModel>
+                <input type="password" class="input-field mb-3" placeholder="Password" name="password" ngModel>
+                <button type="submit" class="submit-btn text-center">Login</button>
+            </form>
+
+        </div>
+    </div>
 </div>
+
+
+
+
+

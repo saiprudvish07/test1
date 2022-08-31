@@ -1,7 +1,7 @@
 <!--Nav-bar-->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand text-dark" routerLink="home">CANTEEN</a>
-    <button class="navbar-toggler navbar-toggler-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navcollapse" aria-controls="navcollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand text-light" routerLink="home">CANTEEN</a>
+    <button class="navbar-toggler navbar-toggler-light" type="button" data-bs-toggle="collapse" data-bs-target="#navcollapse" aria-controls="navcollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navcollapse">
@@ -10,22 +10,22 @@
         
           <li class="nav-item">
            
-            <a class="nav-link text-dark "  routerLink='home' routerLinkActive="active">Home</a>
+            <a class="nav-link text-light "  routerLink='home' routerLinkActive="active">Home</a>
           </li>
 
           <li class="nav-item"  *ngIf="us.userLoginStatus">
            
-            <a class="nav-link text-dark"  routerLink='orders' routerLinkActive="active">Myorders</a>
+            <a class="nav-link text-light"  routerLink='orders' routerLinkActive="active">Myorders</a>
           </li>
          
           <li class="nav-item"  *ngIf="!us.userLoginStatus">
            
-            <a class="nav-link text-dark "  routerLink='register' routerLinkActive="active">Register</a>
+            <a class="nav-link text-light"  routerLink='register' routerLinkActive="active">Register</a>
           </li>
            
           <li class="nav-item" *ngIf="us.userLoginStatus">
            
-            <a class="nav-link text-dark"  routerLink='register' routerLinkActive="active" (click)="userLogout()">Logout</a>
+            <a class="nav-link text-light"  routerLink='register' routerLinkActive="active" (click)="userLogout()">Logout</a>
           </li>
  
        
@@ -68,62 +68,5 @@
   <!--Footer component-->
   
   
-  <div class="bgcolor">
-    <div class="container bottom_border">
-    <div class="row ">
-    <div class="col col-sm-4 col-md-4 col-12 mt-5 text-muted">
-    <h5 class=" pt2 text-dark">Download Our App</h5>
   
-    <p>Download App for Android and ios mobile phone</p>
-    <div class="my-4"> <button class="btn btn-outline-dark btn-icon-text bg-white text-dark p-1 mx-2"> <i class="fab fa-google-play btn-icon-prepend mdi-36px"></i> <span class="d-inline-block text-left"> <small class="font-weight-light d-block">Get it on the</small> Google Play</span> 
-    </button> <button class="btn btn-outline-dark btn-icon-text mt-4 bg-white text-dark p-1 "> <i class="fab fa-apple btn-icon-prepend mdi-36px"></i> <span class="d-inline-block text-left"> <small class="font-weight-light d-block">Download on the</small> App Store</span> </button> </div>
-    </div>
-  
-    <div class=" col-sm-4 col-md col-6 col mt-5">
-      <h5 class="text-dark ms-2">MATINEE</h5>
-    
-      <ul class="list-unstyled ">
-      <li><a href="#!" class="text-dark ms-2">Contact</a></li>
-      <li><a href="#!" class="text-dark ms-2">Partner Program</a></li>
-      <li><a href="#!" class="text-dark ms-2">Affiliate program</a></li>
-      <li><a href="#!" class="text-dark ms-2">movie ratings</a></li>
-      </ul>
-    
-      </div>
-    
-    
-    
-    <div class=" col-sm-4 col-md col-6 col mt-5">
-    <h5 class="text-dark">Useful links</h5>
-  
-    <ul class="list-unstyled ">
-    <li><a href="#!" class="text-dark">Coupons</a></li>
-    <li><a href="#!" class="text-dark">Blog Post</a></li>
-    <li><a href="#!" class="text-dark"> Policy</a></li>
-    <li><a href="#!" class="text-dark">Join Affiliate</a></li>
-    </ul>
-  
-    </div>
-    
-    
-    <div class=" col-sm-4 col-md col-12 col text-center mt-5">
-    <h5 class=" text-dark">Follow us</h5>
-  
-    
-    <ul class="list-unstyled ">
-      <li><a href="#!" class="text-dark">Facebook<i class="fab fa-facebook-square ms-1 text-dark"></i></a></li>
-      <li><a href="#!" class="text-dark">Twitter<i class="fab fa-twitter ms-1 text-dark"></i></a></li>
-      <li><a href="#!" class="text-dark">Instagram <i class="fab fa-instagram ms-1 text-dark"></i></a></li>
-      <li><a href="#!" class="text-dark">Youtube<i class="fab fa-youtube ms-1 text-dark"></i></a></li>
-      </ul>
-  
-    </div>
-    </div>
-    <hr class="text-dark">
-    <div>
-    <p class="text-center text-dark pb-4">Terms of Service Private Policy<i class="fas fa-globe ms-1 me-1"></i>India<p>
-  </div>
-    </div>
-    
-  
-  </div>
+      
